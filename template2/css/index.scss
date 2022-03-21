@@ -1,0 +1,97 @@
+@import './base.scss';
+
+#app {
+  i {
+    font-style: normal;
+  }
+
+  @mixin flex($align:center, $justify:center) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+  }
+
+  .self-info {
+    @include flex(center, flex-start);
+    padding: 30px;
+    color: $base-color;
+    font-weight: 600;
+    font-size: 18px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      display: block;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+
+    .btn-box {
+      @include flex;
+      flex-direction: column;
+      float: right;
+      margin-left: auto;
+      font-weight: normal;
+      font-size: 14px;
+
+      & :not(:last-child) {
+        margin-bottom: 12px;
+      }
+
+      i {
+        padding: 5px 15px;
+
+        border: 1px solid $base-color {
+          radius: 50px
+        }
+      }
+    }
+  }
+
+  .info-box {
+    padding: 0 10px;
+    flex-wrap: wrap;
+    @include flex(center, space-around);
+
+    .item {
+      width: 40%;
+      height: 85px;
+      margin-bottom: 20px;
+      @include flex(center, center);
+      flex-flow: column wrap;
+
+      & div:nth-child(1) {
+        color: #6e6e73;
+        font-size: 14px;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+
+      & div:nth-child(2) {
+        @include flex(flex-end, center);
+        color: rgba($color: #1a1e23, $alpha: 1);
+        font-weight: 600;
+        font-size: 16px;
+
+        i {
+          margin-right: 10px;
+        }
+      }
+
+      border: 1px solid $base-color {
+        radius: 8px
+      }
+
+      .icon-iconsg,
+      .icon-icontz,
+      i {
+        font-size: 30px;
+        color: $base-color;
+      }
+
+    }
+
+  }
+
+}

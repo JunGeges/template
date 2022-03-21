@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <title>体重结果查看</title>
+  <link rel="stylesheet" href="./css/template.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header class="info-box">
+
+      <div class="weight-box">
+        <div v-show="circle" class="half-t-circle"></div>
+        <div v-show="!circle" class="half-b-circle"></div>
+        <div>您的体重</div>
+        <div class="cur-weight">119</div>
+      </div>
+      <div class="last-weight-box">
+        <div class="last-weight">
+          <div>上次称重</div>
+          <div>121斤</div>
+        </div>
+        <div class="options-btn-box">
+          <div @click="toPage(0)">体重详情</div>
+          <div @click="toPage(1)">历史体重</div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        circle: true,
+        message: '!'
+      },
+      mounted() {
+        this.changeCircle()
+      },
+
+      destroyed() {
+        this.interval && clearInterval(this.interval)
+      },
+
+      methods: {
+        changeCircle() {
+          this.interval = setInterval(() => {
+            this.circle = !this.circle
+          }, 1e3)
+        },
+
+        toPage(flag) {
+          const url = ['./weightDetail.html', './weightRecord.html']
+          window.location = url[~~flag]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

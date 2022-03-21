@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  user-select: none;
+  /* 禁止用户鼠标在页面上选中文字/图片等 */
+  width: 100vw;
+  -webkit-overflow-scrolling: touch;
+  /* padding-bottom: 80px; */
+}
+
+/*设置IOS页面长按不可复制粘贴，但是IOS上出现input、textarea不能输入，因此将使用-webkit-user-select:auto;*/
+* {
+  -webkit-touch-callout: none;
+  /*系统默认菜单被禁用*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  -moz-user-select: none;
+  /*火狐*/
+  -ms-user-select: none;
+  /*IE10*/
+  user-select: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto;
+  /*webkit浏览器*/
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+}
+
+#app {
+  color: #343434;
+}
+
+#app .info-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 30px;
+  height: 110px;
+}
+
+#app .info-box .weight-box {
+  width: 110px;
+  height: 110px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #eeeeee;
+  border-radius: 50%;
+}
+
+#app .info-box .weight-box .cur-weight {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+#app .info-box .weight-box .cur-weight::after {
+  content: '斤';
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+#app .info-box .weight-box .half-t-circle {
+  width: 110px;
+  height: 55px;
+  position: absolute;
+  left: -3px;
+  border: 3px solid #ffd100;
+  top: -3px;
+  border-top-left-radius: 55px 55px;
+  border-top-right-radius: 55px 55px;
+  border-bottom-right-radius: 0%;
+  border-bottom-left-radius: 0%;
+  border-bottom: none;
+}
+
+#app .info-box .weight-box .half-b-circle {
+  width: 110px;
+  height: 55px;
+  position: absolute;
+  left: -3px;
+  border: 3px solid #ffd100;
+  bottom: -3px;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 55px 55px;
+  border-bottom-left-radius: 55px 55px;
+  border-top: none;
+}
+
+#app .info-box .last-weight-box .last-weight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app .info-box .last-weight-box .last-weight :first-child {
+  color: #999999;
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+#app .info-box .last-weight-box .last-weight :last-child {
+  color: #333333;
+}
+
+#app .info-box .last-weight-box .options-btn-box {
+  display: flex;
+  margin-top: 10px;
+}
+
+#app .info-box .last-weight-box .options-btn-box :not(:last-child) {
+  margin-right: 10px;
+}
+
+#app .info-box .last-weight-box .options-btn-box div {
+  font-size: 12px;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  color: #777777;
+  border: 1px solid #ffd100;
+  border-radius: 12.5px;
+}

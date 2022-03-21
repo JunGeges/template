@@ -1,0 +1,114 @@
+@import './base.scss';
+
+#app {
+  color: #343434;
+
+  .info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 30px;
+    height: 110px;
+
+    .weight-box {
+      width: 110px;
+      height: 110px;
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+
+      border: 3px solid #eeeeee {
+        radius: 50%
+      }
+
+      .cur-weight {
+        font-weight: 600;
+        font-size: 30px;
+
+        &::after {
+          content: '斤';
+          margin-left: 5px;
+          font-size: 12px;
+        }
+      }
+
+      @mixin circle {
+        width: 110px;
+        height: 55px;
+        position: absolute;
+        left: -3px;
+        border: 3px solid $base-color
+      }
+
+      .half-t-circle {
+        @include circle;
+        top: -3px;
+
+        border: {
+          top-left-radius: 55px 55px;
+          top-right-radius: 55px 55px;
+          bottom-right-radius: 0%;
+          bottom-left-radius: 0%;
+          bottom: none;
+        }
+      }
+
+
+      .half-b-circle {
+        @include circle;
+        bottom: -3px;
+
+        border: {
+          top-left-radius: 0%;
+          top-right-radius: 0%;
+          bottom-right-radius: 55px 55px;
+          bottom-left-radius: 55px 55px;
+          top: none;
+        }
+      }
+    }
+
+    .last-weight-box {
+      .last-weight {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & :first-child {
+          color: #999999;
+          font-size: 10px;
+          margin-right: 10px;
+        }
+
+        & :last-child {
+          color: #333333;
+        }
+      }
+
+      .options-btn-box {
+        display: flex;
+        margin-top: 10px;
+
+        & :not(:last-child) {
+          margin-right: 10px;
+        }
+
+        div {
+          font-size: 12px;
+          height: 25px;
+          line-height: 25px;
+          padding: 0 10px;
+          color: #777777;
+
+
+          border: 1px solid $base-color {
+            radius: 12.5px
+          }
+
+        }
+      }
+    }
+  }
+}

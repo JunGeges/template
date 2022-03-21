@@ -1,0 +1,236 @@
+@import './base.scss';
+
+:root {
+  background-color: #f5f5f5;
+}
+
+$radius:4px;
+
+#app {
+
+  @mixin flex($justify:center) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+  }
+
+  .info-box {
+    @include flex(space-between);
+    background-color: white;
+    margin: 10px;
+    padding: 20px 60px;
+    border-radius: $radius;
+
+    div {
+      text-align: center;
+
+      & :nth-child(1) {
+        font-weight: 600;
+        color: $base-color;
+        margin-bottom: 5px;
+        font-size: 25px;
+      }
+
+      & :nth-child(2) {
+        font-size: 14px;
+        color: #333333;
+      }
+    }
+  }
+
+  .detail {
+    background-color: white;
+    border-radius: $radius;
+    margin: 0 10px;
+
+    .title {
+      line-height: 50px;
+      color: #222222;
+      font-weight: 600;
+
+      &::before {
+        content: "";
+        width: 3px;
+        height: 12px;
+        background-color: $base-color;
+        margin-right: 10px;
+        display: inline-block
+      }
+    }
+
+    .body-info {
+      @include flex(space-between);
+      color: #949494;
+      height: 260px;
+      padding: 0 30px;
+
+      .info-left,
+      .info-right {
+        @include flex(space-around);
+        flex-flow: column wrap;
+        height: 100%;
+        padding: 30px 0;
+        font-size: 14px;
+
+        & div {
+          & text:last-child {
+            color: $base-color;
+          }
+        }
+      }
+
+      .info-left {
+        align-items: flex-start;
+
+        & div {
+          position: relative;
+
+          &::after {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background-color: #949494;
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+
+      .info-right {
+        align-items: flex-end;
+
+        & div {
+          position: relative;
+
+          &::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background-color: #949494;
+            position: absolute;
+            left: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+
+    .bmi-progress {
+      @include flex;
+      padding: 0 30px;
+      position: relative;
+
+      div {
+        height: 10px;
+        border-radius: 5px;
+      }
+
+      .cone {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 10px solid #949494;
+        border-radius: 50%;
+        position: absolute;
+        left: 20%;
+        top: -8px;
+      }
+
+      .ps {
+        background: linear-gradient(to right, #4fffe5, #32ffba, #13ff8b);
+        width: 20%;
+      }
+
+      .zc {
+        background: linear-gradient(to right, #11ff87, #61ff67, #bbff44);
+        width: 30%;
+      }
+
+      .pp {
+        width: 22%;
+        background: linear-gradient(to right, #cdf03e, #e4c537, #f89f31);
+      }
+
+      .fp {
+        width: 28%;
+        background: linear-gradient(to right, #ff922d, #ff7a26, #ff591b);
+      }
+    }
+
+    .bmi-progress-t {
+      @include flex;
+      padding: 0 30px;
+
+      div {
+        text-align: center;
+        font-size: 12px;
+        transform: scale(.8);
+        margin-top: 8px;
+        color: #666666;
+      }
+
+      .ps-t {
+        width: 20%;
+      }
+
+      .zc-t {
+        width: 30%;
+      }
+
+      .pp-t {
+        width: 22%;
+      }
+
+      .fp-t {
+        width: 28%;
+      }
+    }
+
+    .indicators-box {
+      width: 100%;
+      padding: 20px 30px 10px 30px;
+      overflow: scroll;
+      white-space: nowrap;
+
+      div {
+        display: inline-block;
+        width: 72px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+        color: #333333;
+        margin-right: 10px;
+        box-shadow: 0 0 10px #efefef;
+        border-radius: 5px;
+      }
+    }
+
+    .explain-box {
+      width: 100%;
+      overflow: scroll;
+      padding: 0 20px;
+      margin-top: 10px;
+
+      .item {
+        display: inline-block;
+        width: 100%;
+        color: #666666;
+        font-size: 16px;
+        font-weight: 600;
+
+        & :last-child {
+          color: #999999;
+          padding: 10px 0;
+          font-size: 14px;
+          letter-spacing: 1.2px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

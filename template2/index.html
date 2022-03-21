@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <title>体重结果查看</title>
+  <link rel="stylesheet" href="./css/index.min.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_3110853_2gyh3ylxuwd.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="self-info">
+      <img src="http://www.hishop.com.cn/uploads/150914/21678-150914112244436.jpg" alt="" srcset="">
+      <div>我走路带风</div>
+      <div class="btn-box">
+        <i @click="toPage(0)">体重详情</i>
+        <i @click="toPage(1)">历史体重</i>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="item">
+        <div>当前体重</div>
+        <div>
+          <i class="iconfont icon-iconsg"></i>
+          <div>92Kg</div>
+        </div>
+      </div>
+      <div class="item">
+        <div>身高</div>
+        <div>
+          <i class="iconfont icon-icontz"></i>
+          <div>196cm</div>
+        </div>
+      </div>
+      <div class="item">
+        <div>上次体重</div>
+        <div>
+          <i class="iconfont icon-iconsg"></i>
+          <div>102Kg</div>
+        </div>
+      </div>
+      <div class="item">
+        <div>身体质量指数</div>
+        <div>
+          <i>BMI</i>
+          <div>23.5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        circle: true,
+        message: '!'
+      },
+      mounted() {
+
+      },
+
+      methods: {
+
+        toPage(flag) {
+          const url = ['../template1/weightDetail.html', '../template1/weightRecord.html']
+          window.location = url[~~flag]
+        },
+
+        handleError: function () {
+
+        }
+
+      }
+    })
+  </script>
+</body>
+
+</html>
